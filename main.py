@@ -1,13 +1,22 @@
 def main():
-    name = input("Name of the file (with file extension):")
-    size = input("Size of the entire image (width, height)")
-    frameSize = input("Size of a single frame (width, height)")
+    # Get the name of the image
+    name = input("The filename of the image: ")
+    # How big is a frame THEY MUST ALL BE THE SAME SIZE
+    frameSize = input("Size of a single frame (width, height): ")
+    # Split the input into seperate values
     frameSizeArray = frameSize.split(',', 1)
-    frameRow = frameSizeArray.pop()
+    frameHeight = frameSizeArray.pop()
     frameWidth = frameSizeArray.pop()
-    frameCount = int(input("Amount of frames total"))
-    # Can be done by math for later verisons row size / frame size (width wise)
-    framesPerRow = int(input("Amount of frames per row (width, height)"))
+    # Get the total number of frames
+    frameCount = int(input("Amount of frames total: "))
+    # How many frames are in a row
+    framesPerRow =  int(input("Amount of frames per row (MUST BE CONSISTENT (LAST ROW NOT INCLUDED)): "))
+    # Get the frames per column by some math
+    framesPerColumn = int(frameCount / framesPerRow)
+    # Gets the Spritesheet size by some more math
+    imageWidth = framesPerRow * frameWidth
+    imageHeight = framesPerColumn * frameHeight
+    # Starts the output process
     print(name + "\nsize: " + size + "\nformat: RGBA8888\nfilter: Nearest,Nearest\nrepeat: none")
     f = -1
     for i in range(0, frameCount):
