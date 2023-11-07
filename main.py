@@ -22,8 +22,8 @@ def main():
     for i in range(0, frameCount):
         if ((i % framesPerRow) == 0):
             f += 1
-        x = 360 * (i % framesPerRow)
-        y = 180 * (f)
+        x = frameWidth * (i % framesPerRow)
+        y = frameHeight * (f)
         print("default\nrotate: false\nxy: " + str(x) + "," + str(y) + "\nsize: " + frameSize + "\norig: " + frameSize +"\noffset: 0,0\nindex: " + str(i))
     return
 
